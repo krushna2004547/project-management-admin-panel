@@ -1,0 +1,143 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RealTrust - Consultation, Design & Marketing</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-logo">Real<span>Trust</span></div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#clients">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-newsletter">
+        <span>Subscribe Us</span>
+        <input type="email" id="nav-email" placeholder="Enter Email Address"/>
+        <button onclick="navSubscribe()">Subscribe</button>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Consultation,<br/>Design,<br/>&amp; Marketing</h1>
+        <p>We help you find the best property solutions tailored for you.</p>
+        <button class="btn-outline">Learn More</button>
+    </div>
+
+    <!-- CONTACT FORM (hero right side) -->
+    <div class="contact-form-box" id="contact">
+        <h3>Get a Free<br/><span>Consultation</span></h3>
+        <form id="contactForm">
+            <input type="text"  id="fullName"     placeholder="Full Name"          required/>
+            <input type="email" id="emailAddr"    placeholder="Enter Email Address" required/>
+            <input type="tel"   id="mobileNum"    placeholder="Mobile Number"       required/>
+            <input type="text"  id="city"         placeholder="Area, City"          required/>
+            <button type="submit" class="btn-primary">Get Quick Quote</button>
+        </form>
+        <p id="form-msg" class="form-msg"></p>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about-section">
+    <div class="about-text">
+        <h2>Not Your Average Realtor</h2>
+        <p>With years of experience in real estate consulting, design, and marketing, we provide top-tier solutions that bring out the best in every property. Our team is committed to delivering results that exceed your expectations.</p>
+        <button class="btn-outline-blue">Learn More</button>
+    </div>
+    <div class="about-images">
+        <div class="img-placeholder large"></div>
+        <div class="img-placeholder small top"></div>
+        <div class="img-placeholder small bottom"></div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-us">
+    <h2>Why Choose Us?</h2>
+    <div class="why-cards">
+        <div class="why-card">
+            <div class="why-icon">&#127968;</div>
+            <h4>Potential ROI</h4>
+            <p>We help you maximise your property returns with smart investment guidance and market insights.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">&#9998;</div>
+            <h4>Design</h4>
+            <p>Our design experts craft stunning interiors that make every property stand out in the market.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">&#128200;</div>
+            <h4>Marketing</h4>
+            <p>Targeted marketing strategies that ensure your property reaches the right buyers effectively.</p>
+        </div>
+    </div>
+</section>
+
+<!-- OUR PROJECTS -->
+<section class="projects-section" id="projects">
+    <h2>Our Projects</h2>
+    <p class="section-sub">We know what buyers are looking for and suggest projects that will bring top dollar for the sale of their homes.</p>
+    <div class="projects-grid" id="projects-container">
+        <p class="loading-text">Loading projects...</p>
+    </div>
+</section>
+
+<!-- HAPPY CLIENTS -->
+<section class="clients-section" id="clients">
+    <h2>Happy Clients</h2>
+    <div class="clients-grid" id="clients-container">
+        <p class="loading-text">Loading clients...</p>
+    </div>
+</section>
+
+<!-- NEWSLETTER BANNER -->
+<section class="newsletter-banner">
+    <div class="newsletter-content">
+        <h3>Learn more about our listing process, as well as our additional staging and design work.</h3>
+        <button class="btn-white">Learn More</button>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-logo">Real<span>Trust</span></div>
+        <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#clients">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="footer-newsletter">
+            <span>Subscribe Us</span>
+            <input type="email" id="footer-email" placeholder="Enter Email Address"/>
+            <button onclick="footerSubscribe()">Subscribe</button>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 RealTrust. All rights reserved.</p>
+        <div class="social-icons">
+            <span>&#9670;</span>
+            <span>&#9670;</span>
+            <span>&#9670;</span>
+            <span>&#9670;</span>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="css/admin.css"/>
+    <!-- Cropper.js for bonus image cropping -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"/>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <div class="sidebar-logo">Admin<span>Panel</span></div>
+    <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" onclick="showSection('projects')">
+            <span class="nav-icon">&#128247;</span> Projects
+        </a>
+        <a href="#" class="nav-item" onclick="showSection('clients')">
+            <span class="nav-icon">&#128100;</span> Clients
+        </a>
+        <a href="#" class="nav-item" onclick="showSection('contacts')">
+            <span class="nav-icon">&#128222;</span> Contacts
+        </a>
+        <a href="#" class="nav-item" onclick="showSection('subscribers')">
+            <span class="nav-icon">&#128140;</span> Subscribers
+        </a>
+    </nav>
+    <a href="index.html" class="view-site">&#8592; View Site</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <!-- HEADER -->
+    <div class="top-bar">
+        <h1 id="section-title">Projects</h1>
+    </div>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section id="section-projects" class="section active">
+        <div class="card">
+            <h3>Add New Project</h3>
+            <form id="projectForm" class="admin-form">
+                <div class="form-group">
+                    <label>Project Image</label>
+                    <input type="file" id="projectImageFile" accept="image/*" onchange="previewCrop(this, 'projectCropBox')"/>
+                </div>
+                <!-- Cropper preview -->
+                <div id="projectCropBox" class="crop-box" style="display:none;">
+                    <img id="projectCropImg" src="" alt="crop"/>
+                    <div class="crop-actions">
+                        <button type="button" onclick="confirmCrop('project')">Confirm Crop</button>
+                        <button type="button" class="btn-cancel" onclick="cancelCrop('project')">Cancel</button>
+                    </div>
+                </div>
+                <div id="projectImgPreview" class="img-preview-box" style="display:none;">
+                    <img id="projectCroppedPreview" src="" alt="preview"/>
+                    <button type="button" class="btn-sm-red" onclick="resetImage('project')">Change Image</button>
+                </div>
+
+                <div class="form-group">
+                    <label>Project Name</label>
+                    <input type="text" id="projectName" placeholder="Enter project name" required/>
+                </div>
+                <div class="form-group">
+                    <label>Project Description</label>
+                    <textarea id="projectDesc" placeholder="Enter project description" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Add Project</button>
+                <p id="project-msg" class="msg-text"></p>
+            </form>
+        </div>
+
+        <div class="card mt-20">
+            <h3>All Projects</h3>
+            <div class="table-wrapper">
+                <table id="projects-table">
+                    <thead>
+                    <tr><th>Image</th><th>Name</th><th>Description</th><th>Action</th></tr>
+                    </thead>
+                    <tbody id="projects-tbody">
+                    <tr><td colspan="4" class="loading-cell">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CLIENTS SECTION ===== -->
+    <section id="section-clients" class="section">
+        <div class="card">
+            <h3>Add New Client</h3>
+            <form id="clientForm" class="admin-form">
+                <div class="form-group">
+                    <label>Client Image</label>
+                    <input type="file" id="clientImageFile" accept="image/*" onchange="previewCrop(this, 'clientCropBox')"/>
+                </div>
+                <div id="clientCropBox" class="crop-box" style="display:none;">
+                    <img id="clientCropImg" src="" alt="crop"/>
+                    <div class="crop-actions">
+                        <button type="button" onclick="confirmCrop('client')">Confirm Crop</button>
+                        <button type="button" class="btn-cancel" onclick="cancelCrop('client')">Cancel</button>
+                    </div>
+                </div>
+                <div id="clientImgPreview" class="img-preview-box" style="display:none;">
+                    <img id="clientCroppedPreview" src="" alt="preview"/>
+                    <button type="button" class="btn-sm-red" onclick="resetImage('client')">Change Image</button>
+                </div>
+
+                <div class="form-group">
+                    <label>Client Name</label>
+                    <input type="text" id="clientName" placeholder="Enter client name" required/>
+                </div>
+                <div class="form-group">
+                    <label>Designation</label>
+                    <input type="text" id="clientDesig" placeholder="e.g. CEO, Web Developer" required/>
+                </div>
+                <div class="form-group">
+                    <label>Description / Testimonial</label>
+                    <textarea id="clientDesc" placeholder="Enter client testimonial" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Add Client</button>
+                <p id="client-msg" class="msg-text"></p>
+            </form>
+        </div>
+
+        <div class="card mt-20">
+            <h3>All Clients</h3>
+            <div class="table-wrapper">
+                <table id="clients-table">
+                    <thead>
+                    <tr><th>Image</th><th>Name</th><th>Designation</th><th>Description</th><th>Action</th></tr>
+                    </thead>
+                    <tbody id="clients-tbody">
+                    <tr><td colspan="5" class="loading-cell">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACTS SECTION ===== -->
+    <section id="section-contacts" class="section">
+        <div class="card">
+            <h3>Contact Form Responses</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr><th>#</th><th>Full Name</th><th>Email</th><th>Mobile</th><th>City</th><th>Date</th></tr>
+                    </thead>
+                    <tbody id="contacts-tbody">
+                    <tr><td colspan="6" class="loading-cell">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUBSCRIBERS SECTION ===== -->
+    <section id="section-subscribers" class="section">
+        <div class="card">
+            <h3>Subscribed Email Addresses</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr><th>#</th><th>Email Address</th><th>Subscribed At</th></tr>
+                    </thead>
+                    <tbody id="subscribers-tbody">
+                    <tr><td colspan="3" class="loading-cell">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+</div><!-- end main-content -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
